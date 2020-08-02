@@ -1,5 +1,8 @@
 #Simplestream code challenge
 
+#Requisites
+* Have a MySQL server running
+
 #Set up
 
 * Clone this repository
