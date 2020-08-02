@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::group(['prefix' => 'auth'], function () {
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('refresh', 'AuthController@refresh');
+});
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::post('logout', 'AuthController@logout');
+    Route::get('profile', 'AuthController@getProfile');
+    Route::get('channels', 'ChannelController@getList')->name('channels');
+    Route::get('channels/{channelId}/programme/{programmeId}', 'ProgrammeController@get')
+        ->name('programme');
+    Route::get('channels/{channelId}/{date}/{timezone}', 'TimetableController@get')
+        ->where('timezone', '.*')
+        ->name('timetable');
 });
