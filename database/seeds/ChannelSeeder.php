@@ -17,10 +17,10 @@ class ChannelSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Channel::class, 10)
+        factory(App\Models\Channel::class, 10)
             ->create()
             ->each(function ($channel) {
-                $channel->programme()->createMany(factory(App\Programme::class, 5)->make()->toArray());
+                $channel->programme()->createMany(factory(App\Models\Programme::class, 5)->make()->toArray());
         });
     }
 }

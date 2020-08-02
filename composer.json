@@ -63,7 +63,8 @@
         ],
         "test": "phpunit -c phpunit.xml",
         "seed": "php artisan migrate --seed",
+        "jwt_secret": "php artisan jwt:secret",
         "server": "php artisan serve",
-        "start": "composer seed && composer server"
+        "start": "composer seed && composer jwt_secret && composer server"
     }
 }

@@ -4,6 +4,7 @@
 
 * Clone this repository
 * Create MySQL database named 'simplestream'
+* In the repository root folder, rename the .env.example file to .env
 * Update .env file at the repository root folder to configure DB_HOST, DB_DATABASE, DB_USERNAME and DB_PASSWORD with your respective information
 * In the repository root folder, run "composer install".
 * In the repository root folder, run "composer start".

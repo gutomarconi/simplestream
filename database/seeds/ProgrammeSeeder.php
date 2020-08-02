@@ -11,9 +11,6 @@ class ProgrammeSeeder extends Seeder
      */
     public function run()
     {
-//        factory(App\ProgrammeController::class, 10)->create()->each(function ($channel) {
-//            $channel->MedicalRecords()->save(factory(App\MedicalRecords::class)->make());
-//        });
-
+        //
     }
 }
